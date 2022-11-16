@@ -6,7 +6,8 @@ import static task19.FindStudent.findByFullName;
 import static task19.SortStudentsByAVG.sort;
 
 public class SortingAndFindingTest {
-    private static Student[] STUDENTS = new Student[]{new Student("1", new int[]{2, 3, 4, 5, 2, 3}),
+    private static Student[] STUDENTS = new Student[]{
+            new Student("1", new int[]{2, 3, 4, 5, 2, 3}),
             new Student("2", new int[]{5, 5, 5, 5, 5, 5}),
             new Student("3", new int[]{2, 5, 4, 5, 5, 3}),
             new Student("4", new int[]{2, 3, 3, 5, 1, 3}),

@@ -4,22 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 
-public class Student implements Comparable<Student> {
-    private final String fullName;
-    private final int[] marks;
-
-    public Student(String fullName, int[] marks) {
-        this.fullName = fullName;
-        this.marks = marks;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public int[] getMarks() {
-        return marks;
-    }
+public record Student(String fullName, int[] marks) implements Comparable<Student> {
 
     private double getAVG() {
         return marks.length != 0 ? (double) Arrays.stream(marks).sum() / marks.length : 0;

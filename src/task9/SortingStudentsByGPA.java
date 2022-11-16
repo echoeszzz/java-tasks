@@ -1,39 +1,38 @@
 package task9;
-
-
-import java.util.ArrayList;
-import java.util.Comparator;
-
 public class SortingStudentsByGPA {
-
-    Comparator<Student> cmp = Comparator.comparingDouble(Student::averageMark);
-
-    public void quickSort(ArrayList<Student> array, int begin, int end) {
-        if (begin < end) {
-            int partitionIndex = getPartition(array, begin, end);
-            quickSort(array, begin, partitionIndex - 1);
-            quickSort(array, partitionIndex, end);
-        }
+    public static void sort(Student[] students) {
+        quicksort(students, 0, students.length - 1);
     }
 
-    private int getPartition(ArrayList<Student> array, int begin, int end) {
-        var pivot = array.get(end);
-        int i = (begin - 1);
-        for (int j = begin; j < end; j++) {
-            if (cmp.compare(array.get(j), pivot) <= 0) {
+    private static void quicksort(Student[] students, int low, int high) {
+        if (students.length == 0 || low >= high) {
+            return;
+        }
+        int middle = low + (high - low) / 2;
+        Student pivot = students[middle];
+
+        int i = low;
+        int j = high;
+        while (i <= j) {
+            while (students[i].compareTo(pivot) < 0) {
                 i++;
-                var swapTemp = array.get(i);
-                array.set(i, array.get(j));
-                array.set(j, swapTemp);
+            }
+            while (students[j].compareTo(pivot) > 0) {
+                j--;
+            }
+            if (i <= j) {
+                Student temp = students[i];
+                students[i] = students[j];
+                students[j] = temp;
+                i++;
+                j--;
             }
         }
-        var swapTemp = array.get(i + 1);
-        array.set(i + 1, array.get(end));
-        array.set(end, swapTemp);
-        return i + 1;
-    }
-
-    public void sortStudentsByGPA(ArrayList<Student> students) {
-        quickSort(students, 0, students.size());
+        if (low < j) {
+            quicksort(students, low, j);
+        }
+        if (high > i) {
+            quicksort(students, i, high);
+        }
     }
 }

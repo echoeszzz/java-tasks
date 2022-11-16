@@ -1,35 +1,37 @@
 package task9;
 
 
-import java.util.Map;
+import java.util.Arrays;
 
-public record Student(String name_,
-                      String surname_,
-                      int id_,
-                      Map<String, Integer> marks_)
-        implements Comparable<Student> {
-
-    public void addNewMark(String discipline, Integer mark) {
-        marks_.put(discipline, mark);
-    }
+public record Student(String name, String surname, int id, int[] marks) implements Comparable<Student> {
 
     public double averageMark() {
-        if (marks_.isEmpty()) {
-            return 0.0;
-        }
-        double sum = 0.0;
-        int count = 0;
-        for (int value : marks_.values()) {
-            count++;
-            sum += value;
-        }
-        return sum / count;
+        return marks.length != 0 ? (double) Arrays.stream(marks).sum() / marks.length : 0;
     }
 
     @Override
     public int compareTo(Student othStudent) {
-        return (averageMark() != othStudent.averageMark())
-                ? Double.compare(averageMark(), othStudent.averageMark())
-                : Double.compare(hashCode(), othStudent.hashCode());
+        return Double.compare(othStudent.averageMark(), this.averageMark());
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Student{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", surname='").append(surname).append('\'');
+        sb.append(", id=").append(id);
+        sb.append(", marks=");
+        if (marks == null) {
+            sb.append("null");
+        } else {
+            sb.append('[');
+            for (int i = 0; i < marks.length; ++i) {
+                sb.append(i == 0 ? "" : ", ").append(marks[i]);
+            }
+            sb.append(']');
+        }
+        sb.append(" AVG: ").append(averageMark());
+        sb.append('}');
+        return sb.toString();
     }
 }
