@@ -4,20 +4,32 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
-public class MyArray<ValueType> {
-    private List<ValueType> list;
 
-    public MyArray(ValueType[] arr) {
-        list.addAll(Arrays.asList(arr));
+public class MyArray {
+    private Object[] arr;
+    private int size;
+
+    public MyArray(int size) {
+        this.arr = new Object[size];
+        this.size = 0;
     }
 
-    public ValueType get(int index) {
-        return list.get(index);
+    public Object get(int ind) {
+        return arr[ind];
     }
 
-    public void printFirstFive() {
-        for (int i = 0; i < list.size() && i < 5; i++) {
-            System.out.println(list.get(i));
+    public void put(int ind, Object elem) {
+        arr[ind] = elem;
+    }
+
+    public static void main(String[] args) {
+        MyArray m = new MyArray(4);
+        m.put(0, 1);
+        m.put(1, 1.1);
+        m.put(2, Long.parseLong("2"));
+        m.put(3, 3);
+        for (int i = 0; i < 4; ++i) {
+            System.out.println(m.get(i) + " " + m.get(i).getClass());
         }
     }
 }
