@@ -18,7 +18,7 @@ public class TestsJUnit {
     }
 
     public static void main(String[] args) throws IOException {
-        FileWriter fw = new FileWriter("src/task31/");
+        FileWriter fw = new FileWriter("src/task31/test.md");
         fw.write("Results of test\n");
         if (test()) {
             fw.write("All good");
