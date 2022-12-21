@@ -44,4 +44,9 @@ public class ValidateIP {
         return matcher.matches();
     }
 
+    public boolean validate1(String ip) {
+        Pattern pattern = Pattern.compile(IPADDRESS_PATTERN);
+        Matcher matcher = pattern.matcher(ip);
+        return matcher.matches();
+    }
 }

@@ -11,7 +11,7 @@ public class SecondTask {
         this.names = new HashMap<String, String>();
         names.put("Рузин", "Иван");
         names.put("Иванов", "Иван");
-        names.put("Тарасов", "Константин");
+        names.put("Тарасов", "Иван");
         names.put("Константинов", "Арсений");
         names.put("Сергеев", "Арсений");
         names.put("Иванов", "Сергей");

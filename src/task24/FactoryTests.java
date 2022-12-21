@@ -9,7 +9,7 @@ class Client {
 public class FactoryTests {
     public static void main(String[] args) {
         ChairFactory chairFactory = new ChairFactory();
-        Chair chair = chairFactory.createChair(Chairs.MAGIC_CHAIR);
+        Chair chair = chairFactory.createChair(Chairs.MULTIFUNCTIONAL_CHAIR);
         Client client = new Client();
         client.Sit(chair);
     }

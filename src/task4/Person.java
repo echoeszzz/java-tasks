@@ -15,11 +15,11 @@ public class Person {
     }
 
     public void move() {
-        System.out.format("%s двигается", fullName);
+        System.out.format("%s двигается\n", fullName);
     }
 
     public void talk() {
-        System.out.format("%s говорит", fullName);
+        System.out.format("%s говорит\n", fullName);
     }
 }
 

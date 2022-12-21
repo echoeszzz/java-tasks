@@ -1,15 +1,14 @@
 package task22;
 
 import javax.swing.*;
-import java.awt.*;
 
-public class GUI_RPN {
+public class GUI_Calculator {
     private JFrame window;
 
-    public GUI_RPN() {
+    public GUI_Calculator() {
         window = new JFrame("Calc");
         window.setSize(260, 350);
-        window.add(new PanelRPN());
+        window.add(new PanelCalculator());
         window.setLocationRelativeTo(null);
         window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -17,6 +16,6 @@ public class GUI_RPN {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(GUI_RPN::new);
+        SwingUtilities.invokeLater(GUI_Calculator::new);
     }
 }

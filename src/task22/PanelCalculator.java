@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
-public class PanelRPN extends JPanel {
+public class PanelCalculator extends JPanel {
     double result = 0;
     String previousComm = "";
 
@@ -38,7 +38,7 @@ public class PanelRPN extends JPanel {
 
     private JButton division = new JButton("/");
 
-    public PanelRPN() {
+    public PanelCalculator() {
 
         setLayout(null);
 
