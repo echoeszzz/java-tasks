@@ -1,14 +1,15 @@
 package task29;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public final class Dish implements Item {
+public final class Dish implements Item, Serializable {
     private final int price;
     private final String name;
     private final String description;
 
 
-    Dish(int price, String name, String description) {
+    public Dish(int price, String name, String description) {
         if (description.isEmpty() || price < 0 || name.isEmpty()) {
             throw new java.lang.IllegalArgumentException();
         }
@@ -54,8 +55,8 @@ public final class Dish implements Item {
 
     @Override
     public String toString() {
-        return "Dish[" + "Price=" + price + ", " + "Name=" + name + ", "
-                + "Discription=" + description + ']';
+        return "Dish[" + "Price=" + price + ", " + "Name=" + name + ", " + "Discription="
+                + description + ']';
     }
 
 
